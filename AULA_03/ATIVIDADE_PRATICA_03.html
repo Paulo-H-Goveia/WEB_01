@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade_pratica.com</title>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <form class="well form-horizontal" action=" " method="post" id="contact_form">
+            <fieldset>
+
+
+                <legend>
+                    <h1>MATRICULA ALUNO</h1>
+                </legend>
+
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+                    <div>                        
+                        <label>Nome:</label>
+                        <div>
+                            <div>
+                                <input name="letras" placeholder="Jose" type="text" required pattern="[a-zA-Z]">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label>CPF</label>
+                        <div>
+                            <div>
+                                <input name="cpf" placeholder="XXX.XXX.XXX-XX" type="text" required
+                                    pattern="(\d{3}\.\d{3}\.\d{3}-\d{2})|(\d{11})">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label>Data Nascimento</label>
+                        <div>
+                            <div>
+                                <input name="data" placeholder="aaaa/mm/dd" type="datetime" required>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label>Sexo</label>
+                        <div>
+                            <div>
+                                <select name="sexo" id="sexo">
+                                    <option value="male">Masculino</option>
+                                    <option value="female">Feminino</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Cidade</label>
+                            <div>
+                                <div>
+                                    <input name="cidade" placeholder="Araraquara" type="text" required>
+                                    <span><a>Es: </a></span>
+                                    <select id="estado" name="estado">
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                        <option value="EX">Estrangeiro</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Dados Matricula</legend>
+                    <div>
+                        <label>Curso</label>
+                        <div>
+                            <select name="curso" id="curso">
+                                <option value="ads">Analise e desenvolvimento de sistemas</option>
+                                <option value="em">Engenharia mecanica</option>
+                                <option value="tsi">tecnologia em sistemas para internet</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="optativas">Disciplinas Optativas</label>                        
+                        <div>
+                            <input id="check_disp1" type="checkbox" name="prog_robo" value="Programação_de_Robos">
+                            <span>Programação de Robos</span>
+                            <input id="check_disp2" type="checkbox" name="devia" value="Desenvolvimento_de_inteligencias_artificiais">
+                            <span>Desenvolvimento de inteligencias artificiais<br></span>
+                            <input id="check_disp3" type="checkbox" name="modcomp" value="modelagem_computacional">
+                            <span>Modelagem Computacional</span>
+                            <input id="check_disp3" type="checkbox" name="devdocker" value="Ambientes_isolados_desenvolvimento_com_docker">
+                            <span>Ambientes isolados: desenvolvimento com docker <br><br></span>
+
+                            <span>Sugestões de disciplinas futuras <br></span>
+                            <textarea name="sugestao_displi" rows="10" cols="40" maxlength="500"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                    <!-- Button -->
+                    <div style="text-align: center;">
+                        <span>Enviar: </span>
+                        <button type="submit"><img src="https://cdn-icons-png.flaticon.com/512/46/46076.png" width="20px" height="20px"></button>                        
+                    </div>
+
+            </fieldset>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>

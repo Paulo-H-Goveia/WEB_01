@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade_pratica.com</title>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <form class="well form-horizontal" action=" " method="post" id="contact_form">
+            <fieldset>
+
+
+                <legend>
+                    <h1>VALIDANDO FORMULARIOS APENAS COM HTML5 (REGEX)</h1>
+                </legend>
+
+                <div>
+                    <label>Apenas Letras</label>
+                    <div>
+                        <div>
+                            <input name="letras" placeholder="Jose" type="text" required pattern="[a-zA-Z]">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Apnenas Numeros</label>
+                    <div>
+                        <div>
+                            <input name="numeros" placeholder="0" type="number" required min="0" max="100" step="0.01">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label>Data</label>
+                    <div>
+                        <div>
+                            <input name="data" placeholder="aaaa/mm/dd" type="datetime" required min="2020-01-01"
+                                max="2022-01-01">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Horas</label>
+                    <div>
+                        <div>
+                            <input name="horas" placeholder="00:00" type="time" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Telefone</label>
+                        <div>
+                            <div>
+                                <input name="telefone" placeholder="(00) 00000-0000" type="text" required
+                                    pattern="\([0-9]{2}\)[0-9]{4,5}-[0-9]{4}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>CPF</label>
+                        <div>
+                            <div>
+                                <input name="cpf" placeholder="XXX.XXX.XXX-XX" type="text" required
+                                    pattern="(\d{3}\.\d{3}\.\d{3}-\d{2})|(\d{11})">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>IMGS</label>
+                        <div>
+                            <div>
+                                <input name="file" type="image" required accept="image">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button -->
+                    <div>
+                        <p>Enviar</p>
+                        <div>
+                            <button type="submit"><img src="https://cdn-icons-png.flaticon.com/512/46/46076.png" width="20px" height="20px"></button>
+                        </div>
+                    </div>
+
+            </fieldset>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>
