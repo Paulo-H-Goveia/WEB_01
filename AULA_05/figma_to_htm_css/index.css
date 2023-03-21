@@ -1,0 +1,410 @@
+.diablo-4-hell-hd-wallpaper-uhd-icon {
+  align-self: stretch;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 1024px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.atividade-pratica-08-inner,
+.diablo-4-hell-hd-wallpaper-uhd-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.diablo-4-hell-hd-wallpaper-uhd-wrapper {
+  align-self: stretch;
+}
+.atividade-pratica-08-inner {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 1480px;
+  box-sizing: border-box;
+}
+.frame-child {
+  align-self: stretch;
+  position: relative;
+  background-color: rgba(134, 0, 0, 0.87);
+  height: 88px;
+  flex-shrink: 0;
+}
+.atividade-pratica-08-child {
+  position: absolute;
+  top: 210px;
+  left: -20px;
+  width: 1480px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-item {
+  position: relative;
+  width: 6px;
+  height: 56px;
+  flex-shrink: 0;
+}
+.atividade-pratica-08-inner1,
+.ellipse-wrapper,
+.frame-div {
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.atividade-pratica-08-inner1,
+.frame-div {
+  position: absolute;
+  top: 226px;
+  left: 407px;
+}
+.atividade-pratica-08-inner1 {
+  left: 960px;
+}
+.rectangle-icon {
+  position: relative;
+  width: 156px;
+  height: 47px;
+  flex-shrink: 0;
+}
+.atividade-pratica-08-inner2,
+.vector-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.atividade-pratica-08-inner2 {
+  position: absolute;
+  top: 233px;
+  left: 115px;
+}
+.novidades {
+  position: relative;
+  font-weight: 800;
+}
+.frame-a {
+  text-decoration: none;
+  position: absolute;
+  top: 238px;
+  left: 131px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: inherit;
+}
+.atividade-pratica-08-inner3 {
+  top: 233px;
+  left: 612px;
+}
+.atividade-pratica-08-inner3,
+.atividade-pratica-08-inner4,
+.atividade-pratica-08-inner5,
+.atividade-pratica-08-inner6 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.atividade-pratica-08-inner4 {
+  text-decoration: none;
+  top: 238px;
+  left: 655px;
+  color: inherit;
+}
+.atividade-pratica-08-inner5,
+.atividade-pratica-08-inner6 {
+  top: 233px;
+  left: 1120px;
+}
+.atividade-pratica-08-inner6 {
+  text-decoration: none;
+  top: 238px;
+  left: 1157px;
+  color: inherit;
+}
+.atividade-pratica-08-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.diablo-4-logo-artwork-by-strkd-icon {
+  align-self: stretch;
+  position: relative;
+  border-radius: 52.5px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 109px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.diablo-4-logo-artwork-by-strkd-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 268px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangle-div {
+  position: relative;
+  background-color: var(--color-darkred-100);
+  width: 191px;
+  height: 614px;
+  flex-shrink: 0;
+}
+.atividade-pratica-08-inner7 {
+  position: absolute;
+  top: 365px;
+  left: 190px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.frame-child3 {
+  position: relative;
+  background-color: var(--color-darkred-100);
+  width: 594px;
+  height: 614px;
+  flex-shrink: 0;
+}
+.atividade-pratica-08-inner8,
+.rectangle-frame {
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.atividade-pratica-08-inner8 {
+  position: absolute;
+  top: 365px;
+  left: 396px;
+}
+.classes {
+  font-size: 16px;
+}
+.heris-de-santurio-container {
+  align-self: stretch;
+  position: relative;
+  font-weight: 800;
+}
+.crie-e-personalize {
+  margin: 0;
+}
+.barbaro {
+  margin-bottom: 0;
+}
+.barbaro-druida-renegada-necrom {
+  margin: 0;
+  padding-left: 17px;
+}
+.crie-e-personalize-container {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-inherit);
+  font-weight: 800;
+  font-family: var(--font-inherit);
+}
+.heris-de-santurio-classes-parent {
+  position: absolute;
+  top: 612px;
+  left: 433px;
+  width: 553px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  font-size: var(--font-size-xl);
+}
+.atividade-pratica-08-inner9 {
+  position: absolute;
+  top: 365px;
+  left: 1004px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.o-acesso-antecipado {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-smi);
+  font-weight: 800;
+}
+.acesso-antecipado-a-verso-bet-parent {
+  position: absolute;
+  top: 416px;
+  left: 433px;
+  width: 553px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 46px;
+  font-size: var(--font-size-xl);
+}
+.conhea-santurio {
+  position: relative;
+  font-weight: 800;
+  text-align: left;
+}
+.camps01-small2x-1-icon {
+  position: relative;
+  width: 184px;
+  height: 124px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.as-batalhas-mudam,
+.aventureiros-heroicos-podem {
+  position: relative;
+  font-size: 11px;
+  font-weight: 800;
+  display: inline-block;
+  width: 187px;
+}
+.as-batalhas-mudam {
+  font-size: 10px;
+  width: 185px;
+  height: 83px;
+  flex-shrink: 0;
+}
+.conhea-santurio-parent {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs) 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+}
+.atividade-pratica-08-inner10 {
+  position: absolute;
+  top: 378px;
+  left: 201px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  font-size: var(--font-size-smi);
+}
+.image-1-icon {
+  position: relative;
+  width: 174px;
+  height: 130px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.image-1-wrapper,
+.live-streams-wrapper {
+  position: absolute;
+  left: -2px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.image-1-wrapper {
+  text-decoration: none;
+  top: 37px;
+  flex-direction: column;
+  padding: var(--padding-3xs) 1px var(--padding-11xs) var(--padding-11xs);
+}
+.live-streams-wrapper {
+  top: 0;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+}
+.image-2 {
+  text-decoration: none;
+  position: relative;
+  width: 179px;
+  height: 130px;
+  flex-shrink: 0;
+  background-image: url(./public/image-2@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.image-2-wrapper {
+  position: absolute;
+  top: 208px;
+  left: -2px;
+  width: 179px;
+  height: 141px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-3xs) 0 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.image-3-icon {
+  position: relative;
+  width: 167px;
+  height: 127px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.image-3-wrapper {
+  text-decoration: none;
+  position: absolute;
+  top: 371px;
+  left: -2px;
+  width: 169px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  padding: 3px 0 var(--padding-11xs) var(--padding-11xs);
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-parent {
+  position: absolute;
+  top: 388px;
+  left: 1034px;
+  width: 191px;
+  height: 613px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-smi);
+}
+.atividade-pratica-08 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1024px;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+  font-family: var(--font-exo);
+}
