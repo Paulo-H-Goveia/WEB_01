@@ -1,0 +1,123 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #666666;
+	font-family: 'Tahoma', 'Geneva', 'sans-serif';
+	font-size: 12px;
+	line-height: 1.5em; 
+	background-color: #010206;	
+}
+
+a, a:link, a:visited { color: #999999; text-decoration: underline; }
+a:hover { color: #00CCFF; text-decoration: none; }
+
+p { margin: 0 0 10px 0; padding: 0; font-style: italic; font-weight: bold; font-size: 15px; color: #FFFFFF;}
+img { border: none; }
+img.icon{ margin-left: 250px;}
+
+h1, h2, h3, h4, h5, h6 { color: #fff; font-weight: normal }
+h1 { font-size: 34px; margin: 0 0 30px 0; padding: 5px 0; }
+h2 { font-size: 24px; margin: 0 0 30px 0; padding: 0; }
+h3 { font-size: 21px; margin: 0 0 15px; padding: 0; }
+h4 { font-size: 18px; margin: 0 0 15px; padding: 0; }
+h5 { font-size: 16px; margin: 0 0 10px; padding: 0; }
+h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
+
+.clear { clear: both }
+.h10 { height: 10px }
+.h20 { height: 20px }
+.h30 { height: 30px }
+.h40 { height: 40px }
+.h50 { height: 50px }
+.h60 { height: 60px }
+
+.float_l { float: left }
+.float_r { float: right }
+
+.image_wrapper { display: inline-block; border: 3px solid #35373b; margin-bottom: 5px }
+.image_fl { float: left; margin: 3px 30px 0 0 }
+.image_fr { float: right; margin: 3px 0 0 30px }
+
+blockquote { font-style: italic; margin-left: 10px}
+cite { font-weight: bold; color:#ccc }
+cite span { color: #ccc }
+em { color: #fff; font-weight: 400 }
+
+.atv_prat_list { margin: 0 0 0 20px; padding: 0; list-style: none }
+.atv_prat_list li { color: #666666; margin:0 0 5px; padding: 3px 0 3px 15px; background: url(https://imgcloud.com.br/share/FazuQBpejGycyT1T) no-repeat scroll 0 10px }
+.atv_prat_list li a { color: #666666; text-decoration: underline }
+.atv_prat_list li a:hover { color: #00CCFF; }
+
+#atv_prat_wrapper { width: 1020px; margin: 0 auto }
+
+#atv_prat_header { width: 960px padding: 0 30px; height: 369px; background-image: url(https://imgcloud.com.br/share/VNOid1H4xpJZyP3C); background-size: cover;}
+
+
+
+/* menu */
+
+#atv_prat_menu {
+	width: 1024px;
+	height: 150px;
+	padding: 0 25px;
+	margin-bottom: 30px;
+    background: url(https://imgcloud.com.br/share/xZnc0JK844Zgc7zp) no-repeat;
+}
+
+#atv_prat_menu ul {
+	height: 62px;
+	margin: 0;
+	padding: 1px 0 0 0;
+	list-style: none;
+}
+
+#atv_prat_menu ul li {
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+#atv_prat_menu ul li a {
+	float:left;
+	display: block;
+	height: 37px;
+	padding: 15px 52px 0 50px;
+	font-size: 18px;
+	color: #FFFFFF;	
+	text-align: center;
+	text-decoration: none;
+	background: url(https://imgcloud.com.br/share/e9IPuv6X8YbBPgrz) center right no-repeat;
+}
+
+#atv_prat_menu ul li a:hover, #atv_prat_menu ul .current {
+	color: #0eb0ff;
+}
+
+#atv_prat_menu ul .last { background: none; padding-right: 52px }
+/* end of menu */
+
+#atv_prat_main {
+	width: 960px;
+	padding: 30px;
+}
+
+#atv_prat_content {
+	float: left;
+	width: 560px	
+}
+
+.content_box { clear: both; margin-bottom: 60px }
+.col_w250 { width: 250px }
+.last_box { margin: 0 }
+
+#atv_prat_footer {
+	clear: both;
+	width: 960px;
+	padding: 70px 30px 20px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	background: url(https://imgcloud.com.br/share/WX9XJp45HoEsfGG0) bottom center no-repeat;
+}
+
+#atv_prat_footer a { color: #fff; }
