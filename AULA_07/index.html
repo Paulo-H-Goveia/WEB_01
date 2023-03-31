@@ -3,26 +3,86 @@
 <head>
 <script src="lista_ex.js"></script>
 <title>Lista_ex</title>
+<style>
+    div{
+        display: flex;
+    }
+    button{
+        margin: 3%;
+    }
+</style>
 
 </head>
 <body>
 
-<div title="ex_01" style="display: flex;">
+<div title="ex_01">
     <p><h2>exercicio_01</h2></p>
     <script>window.onload = caixaAlerta</script>
 </div>
 
-<div title="ex_02" style="display: flex;">
+<div title="ex_02">
     <p><h2>exercicio_02</h2></p>
     <input style="margin-left: 5%;" type="button" onclick="caixaAlerta()" value="Exibir Alert" />
 </div>
 
-<div title="ex_03" style="margin-top: 5%;">
+<div title="ex_03" style="margin-top: 5%; display: block;">
     <p><h2>exercicio_03</h2></p>
         Primeiro numero:<input id="numero1" type="number"> <br />
         Segundo  numero:<input id="numero2" type="number"> <br />
         Terceiro numero: <input id="numero3" type="number"> <br />
-   <button style="margin: 3%;" onclick="maior()">Calcular Maior</button>
+   <button onclick="maior()">Calcular Maior</button>
+</div>
+
+<div title="ex_04" style="display: block;">
+    <p><h2>exercicio_04</h2></p>
+    Idade: <input id="idade" type="number">
+    <button onclick="maiorIdade()">Maioridade</button>
+</div>
+
+<div title="ex_05" style="display: block;">
+    <p><h2>exercicio_05</h2></p>
+    Primeiro numero:<input id="n1" type="number"> <br />
+    Segundo  numero:<input id="n2" type="number"> <br />
+    Terceiro numero: <input id="n3" type="number"> <br />
+    <button onclick="mediaAritimetica()">Calcular Media Aritimetica</button>
+</div>
+
+<div id="ex_06" title="ex_06" style="display: flexbox; flex-direction: column;">
+    <p><h2>exercicio_06</h2></p>
+    Peso:<input style="margin: 0%; width: 30%;" id="peso" type="number"> <br/>
+    Altura:<input style="margin: 0%; width: 30%;" id="altura" type="number"> <br/>
+    <button style="margin: 0%; width: 30%;" onclick="calcularIMC()">Calcular IMC</button>
+</div>
+
+<div id="ex_07" title="ex_07">
+    <p><h2>exercicio_07</h2></p>
+    <button style="width: 30%;" onclick="somaMultiplos()">Soma Multiplos</button>
+</div>
+
+<div id="ex_08" title="ex_08">
+    <p><h2>exercicio_08</h2></p>
+    <button style="width: 30%;" onclick="fibonacciSoma()">Soma Fibonacci</button>
+</div>
+
+<div id="ex_09" title="ex_09">
+    <p><h2>exercicio_09</h2></p>
+    <button style="width: 30%;" onclick="primoNum()">Soma Primos</button>
+</div>
+
+<div id="ex_10" title="ex_10">
+    <p><h2>exercicio_10</h2></p>
+    <button style="width: 30%" onclick="tabelaPrimo()">Tabela Primo</button>
+</div>
+
+<div id="ex_11" title="ex_11" style="display: flexbox; flex-direction: column;">
+    <p><h2>exercicio_11</h2></p>
+    <button style="width: 30%" onclick="calculaDelta()">Calcular Delta</button>
+</div>
+
+<div id="ex_12" title="ex_12">
+    <p><h2>exercicio_12</h2></p>
+    String para inverssão: <input id="stringinvert" type="text">
+    <button onclick="invertString()">Inverter String</button>
 </div>
 
 </body>
