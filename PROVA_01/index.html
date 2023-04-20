@@ -4,21 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="import" href="game.html">
+    <title>Labirinto</title>
 
     <style>
+        h1{
+            font-size: 100px;
+            text-align: center;
+            color: white;
+        }
         body{
             background-size: cover;
             background: url("img/mars.png");
         }
+        button{
+            font-size: 50px;
+            color: red;
+            text-align: center;
+            display: flex;
+            justify-self: center;
+        }
+        .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        }
     </style>
-
 </head>
 <body>
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <canvas width="700px" height="700px">
-            <script src="lb_js.js"></script>
-        </canvas>
+    <h1>LABIRINTO</h1>
+    <div class="center">
+        <button onclick="window.location.href= 'game.html';">
+            START
+          </button>
     </div>
 </body>
 </html>

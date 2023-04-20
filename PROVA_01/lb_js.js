@@ -5,14 +5,21 @@
 	
 	var WIDTH = cnv.width, HEIGHT = cnv.height;
 	
-	var LEFT = 37, UP = 38, RIGHT = 39, DOWN = 40;
+	var LEFT = 37, UP = 38, RIGHT = 39, DOWN = 40, fim = 17;
 	var mvLeft = mvUp = mvRight = mvDown = false;
 	
-	var tileSize = 96;
+	var tileSize = 64;
     var tileSrcSize = 96;
+
+    var duration = 60 * 5;
 
     var img = new Image()
         img.src = "img/img.png";
+        img.addEventListener("load", function(){
+            requestAnimationFrame(loop,cnv);
+        }, false);
+    var imgPortal = new Image()
+        imgPortal.src = "img/portal.png";
         img.addEventListener("load", function(){
             requestAnimationFrame(loop,cnv);
         }, false);
@@ -24,9 +31,19 @@
 		y: tileSize + 2,
 		width: 24,
 		height: 32,
-		speed: 2,
+		speed: 1,
         srcX: 0,
         srcY: tileSrcSize,
+        countAnim: 0
+	};
+
+    var portal = {
+		x: tileSize,
+		y: tileSize,
+		width: tileSize,
+		height: tileSize,
+        srcX: 0,
+        srcY: 0,
         countAnim: 0
 	};
 
@@ -47,7 +64,7 @@
             [	1,	1,	1,	1,	1,	1,	1,	0,	1,	1,	1,	0,	1,	1,	1,	1,	1,	0,	1	]	,
             [	1,	0,	0,	0,	1,	0,	0,	0,	1,	0,	0,	0,	1,	0,	1,	0,	0,	0,	1	]	,
             [	1,	1,	1,	0,	1,	0,	1,	1,	1,	1,	1,	0,	1,	0,	1,	1,	1,	0,	1	]	,
-            [	1,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0	]	,
+            [	1,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	0,	1,	0,	0,	3,	1	]	,
             [	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1	]	
         ],
         [
@@ -68,8 +85,8 @@
             [	1,	0,	1,	0,	1,	0,	1,	0,	1,	1,	1,	1,	1,	0,	1,	0,	1,	0,	1	]	,
             [	1,	0,	1,	0,	1,	0,	1,	0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	1	]	,
             [	1,	0,	1,	0,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	0,	1,	1,	1	]	,
-            [	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	]	,
-            [	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	]	
+            [	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	3,	1	]	,
+            [	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1	]	
         ],
         [
             [	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1	]	,
@@ -91,7 +108,7 @@
             [	1,	0,	1,	1,	1,	1,	1,	0,	1,	0,	1,	0,	1,	0,	1,	0,	1,	0,	1,	1,	1	]	,
             [	1,	0,	0,	0,	0,	0,	0,	0,	1,	0,	1,	0,	1,	0,	1,	0,	1,	0,	1,	0,	1	]	,
             [	1,	0,	1,	1,	1,	0,	1,	0,	1,	0,	1,	1,	1,	0,	1,	1,	1,	0,	1,	0,	1	]	,
-            [	1,	0,	1,	0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0	]	,
+            [	1,	0,	1,	0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	3,	1	]	,
             [	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1	]	
     ],
     [
@@ -114,11 +131,12 @@
         [	1,	1,	1,	0,	1,	1,	1,	0,	1,	0,	1,	0,	1,	1,	1,	1,	1,	0,	1	]	,
         [	1,	0,	0,	0,	0,	0,	1,	0,	1,	0,	0,	0,	1,	0,	0,	0,	1,	0,	1	]	,
         [	1,	1,	1,	0,	1,	0,	1,	1,	1,	0,	1,	1,	1,	1,	1,	0,	1,	1,	1	]	,
-        [	1,	0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0	]	,
+        [	1,	0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	3,	1	]	,
         [	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1	]	
     ]
     ];
 
+    
     var index = Math.floor(Math.random() * 4);
 
 	for(var row in maze[index]){
@@ -136,7 +154,7 @@
 			}
 		}
 	}
-	
+    
 var cam = {
     x: 0,
     y: 0,
@@ -211,6 +229,9 @@ var cam = {
 			case DOWN:
 				mvDown = false;
 				break;
+            case fim:
+                window.alert("O PESADELO ACABOU VOCE ESCAPOU!!!")
+                break;
 		}
 	}
 	
@@ -261,6 +282,13 @@ var cam = {
         if(player.y + player.height > cam.innerBottomBoundary()){
             cam.y = player.y + player.height - (cam.height*0.75)
         }
+
+        if(portal.countAnim <= 40){
+            portal.countAnim++
+            portal.srcX = Math.floor(portal.countAnim/5)*portal.width;
+        }else{
+            portal.countAnim = 0;
+        }
 	}
 	
 	function render(){
@@ -278,7 +306,13 @@ var cam = {
                     tile*tileSrcSize,0,tileSrcSize,tileSrcSize,
                     x,y,tileSize,tileSize
                 );
-				
+
+                if(tile===3){
+                    ctx.drawImage(
+                        imgPortal,tile*tileSrcSize,0,tileSrcSize,tileSrcSize,
+                        x,y,tileSize,tileSize
+                    )
+                }
 			}
 		}
 		
@@ -296,4 +330,30 @@ var cam = {
 		requestAnimationFrame(loop,cnv);
 	}
 	requestAnimationFrame(loop,cnv);
+    window.onload = function(){
+        requestAnimationFrame(loop,cnv);
+        var display = document.querySelector("#timer");
+        startTimer(duration,display)       
+    }
+    //var duration = 60 * 3
+    //var display = document.querySelector("#timer");
+
+    function startTimer(duration,display) {
+        
+        var timer = duration, minutes, seconds;
+        setInterval(function(){
+            minutes = parseInt(timer/60,10)
+            seconds = parseInt(timer%60,10)
+
+            minutes = minutes < 10 ? "0"+minutes : minutes;
+            seconds = seconds < 10 ? "0"+seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if(--timer <0 ){
+                timer = "";
+                duration = 0;
+            }
+        }, 1000)
+    }
 }());
