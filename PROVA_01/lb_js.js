@@ -353,6 +353,7 @@ var cam = {
             if(--timer <0 ){
                 timer = "";
                 duration = 0;
+		window.alert("TEMPO ACABOU VOCE MORREU!!!")
             }
         }, 1000)
     }
