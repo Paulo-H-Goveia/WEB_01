@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.tarefas;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/listar_tarefas")
 public class listar_tarefas extends HttpServlet {
@@ -23,7 +24,11 @@ public class listar_tarefas extends HttpServlet {
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<tarefas> lista = dao.listar_tarefas();
+        
+    	HttpSession session = request.getSession();
+        int id = Integer.parseInt(session.getAttribute("usuario_logado").toString());
+    	
+    	ArrayList<tarefas> lista = dao.listar_tarefas(id);
         request.setAttribute("listaTarefas", lista);
 
         for (int i = 0; i < lista.size(); i++){

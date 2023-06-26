@@ -34,7 +34,7 @@ public class cadastro_tarefa extends HttpServlet {
 		tarefa.setDataConclusao(request.getParameter("dataConclusao"));
 		tarefa.setStatus(request.getParameter("status"));
         
-        dao.inserir_tarefa(tarefa);
+        dao.inserir_tarefa(request, tarefa);
         response.sendRedirect("http://localhost:8080/agenda_pessoal/listar_tarefas");
 	}
 

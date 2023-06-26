@@ -31,7 +31,7 @@ public class login extends HttpServlet {
 		String usuario = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
         
-        if (dao.login(usuario, senha) == 1) {
+        if (dao.login(request, usuario, senha) == 1) {
         	response.sendRedirect("http://localhost:8080/agenda_pessoal/listar_tarefas");
         }else {
         	response.sendRedirect("http://localhost:8080/agenda_pessoal/login.jsp?status=rejected");

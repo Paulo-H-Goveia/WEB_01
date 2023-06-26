@@ -6,33 +6,39 @@ ArrayList<tarefas> lista_tarefas = (ArrayList<tarefas>) request.getAttribute("ed
 
 response.setCharacterEncoding("UTF-8");
 %>
+<%
+if (session.getAttribute("usuario_logado") != null) {
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Editar tarefa</title>
 <style>
-    body {
-      font-family: Arial, sans-serif;
+     body {
+      font-family: 'Open Sans';
       display: flex;
       justify-content: center;
       align-items: center;
       height: 97vh;
+      background: linear-gradient(to bottom, #848484, #585a5b);
     }
 
     .container {
-      width: 400px;
+      width: 60%;
       padding: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #000000;
       border-radius: 5px;
-      background-color: #f2f2f2;
+      background: linear-gradient(to bottom, #848484, #585a5b);
       margin: 0 auto;
     }
 
     h2 {
       text-align: center;
+	  font-weight: bolder;
+	  color: #fff;
     }
-
+    
     .form-group {
       margin-bottom: 10px;
     }
@@ -41,6 +47,7 @@ response.setCharacterEncoding("UTF-8");
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
+      color: white;
     }
 
     .form-group input,
@@ -52,13 +59,18 @@ response.setCharacterEncoding("UTF-8");
     }
 
     .form-group .btn {
-      width: 100%;
+      width: 100px;
       padding: 10px;
       border: none;
       border-radius: 3px;
-      background-color: #4CAF50;
+      background-color: blue;
       color: #fff;
       cursor: pointer;
+      font-weight: bolder;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      text-align: center;
     }
   </style>
 </head>
@@ -102,3 +114,8 @@ response.setCharacterEncoding("UTF-8");
   <%}} %>
 </body>
 </html>
+<%
+} else {
+    response.sendRedirect("login.jsp");
+}
+%>

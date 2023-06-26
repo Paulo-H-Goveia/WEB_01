@@ -7,11 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.mindrot.jbcrypt.BCrypt;
+
 public class DAO {
     private String driver = "com.mysql.cj.jdbc.Driver";
     private String url = "jdbc:mysql://127.0.0.1:3306/dbagenda?useTimezone=true&serverTimezone=UTC";
     private String user = "root";
-    private String password = "admin123456789";
+    private String password = "";
     
     private Connection conectar() {
     	Connection con = null;
@@ -37,75 +42,85 @@ public class DAO {
     	}
     }
     
-    public int inserir_usuario(usuarios usuario) {
+    public int inserir_usuario(HttpServletRequest request, usuarios usuario) {
+        int resultado = 0;
+        int idUsuarioCadastrado = 0; // id do user cadastrado
 
-    	int resultado = 0;
-    	
-    	// Inserir os dados no banco de dados
+        // Verificar se o email ja existe
         try {
-            
-        	Connection con1 = conectar();   	
-        	
-        	String sql1 = "SELECT * FROM usuarios WHERE email = ?";
+            Connection con = conectar();
 
-            PreparedStatement statement1 = con1.prepareStatement(sql1);
+            String sqlVerificarEmail = "SELECT id FROM usuarios WHERE email = ?";
+            PreparedStatement statementVerificarEmail = con.prepareStatement(sqlVerificarEmail);
+            statementVerificarEmail.setString(1, usuario.getEmail());
+            ResultSet resultSet = statementVerificarEmail.executeQuery();
+
+            if (resultSet.next()) {
                 
-            statement1.setString(1, usuario.getEmail());
-                
-            ResultSet resultSet = statement1.executeQuery();
-            
-            while (resultSet.next()) {
-                resultado ++;
-            }
-        	
-            statement1.close();
-            con1.close();
-            
-            System.out.println(resultado);
-        	
-        	if(resultado == 0) {
-        		
-        		Connection con = conectar();
-        		String sql = "INSERT INTO usuarios (nome,telefone, email, senha) VALUES (?, ?, ?, ?)";
-        		PreparedStatement statement = con.prepareStatement(sql);
-        		
-                statement.setString(1, usuario.getNome() );
-                statement.setString(2, usuario.getTelefone());
-                statement.setString(3, usuario.getEmail());
-                statement.setString(4, usuario.getSenha());
-                int linhasInseridas = statement.executeUpdate();
+                resultado = -1;
+            } else {
+                // O email n cadastrado
+                String sqlInserirUsuario = "INSERT INTO usuarios (nome, telefone, email, senha) VALUES (?, ?, ?, ?)";
+                PreparedStatement statementInserirUsuario = con.prepareStatement(sqlInserirUsuario);
+
+                String senhaCriptografada = criptografarSenha(usuario.getSenha());
+
+                statementInserirUsuario.setString(1, usuario.getNome());
+                statementInserirUsuario.setString(2, usuario.getTelefone());
+                statementInserirUsuario.setString(3, usuario.getEmail());
+                statementInserirUsuario.setString(4, senhaCriptografada);
+                int linhasInseridas = statementInserirUsuario.executeUpdate();
+
                 if (linhasInseridas > 0) {
-                    System.out.println("Usuário adicionado com sucesso");
-                }
-                statement.close();
-                con.close();
-        		
-        	}
-        	
+                    System.out.println("Usuï¿½rio adicionado com sucesso");
 
+                    // id do user cadastrado
+                    String sqlId = "SELECT LAST_INSERT_ID()";
+                    PreparedStatement statementId = con.prepareStatement(sqlId);
+                    ResultSet resultSetId = statementId.executeQuery();
+                    if (resultSetId.next()) {
+                        idUsuarioCadastrado = resultSetId.getInt(1);
+                    }
+                    statementId.close();
+                }
+
+                statementInserirUsuario.close();
+            }
+
+            statementVerificarEmail.close();
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
-        return resultado;
-        
-	}
-    
-    
-    public void inserir_tarefa(tarefas tarefa) {
 
-        // Inserir os dados no banco de dados
+        if (resultado == 0 && idUsuarioCadastrado > 0) {
+            HttpSession session = request.getSession(true);
+            session.setAttribute("usuario_logado", idUsuarioCadastrado);
+        }
+
+        return resultado;
+    }
+
+
+    
+    
+    public void inserir_tarefa(HttpServletRequest request, tarefas tarefa) {
+
+        // Inserir os dados no bd
         try {
-            
+
+        	HttpSession session = request.getSession();
+            int id = Integer.parseInt(session.getAttribute("usuario_logado").toString());
         	Connection con = conectar();
         	
-            String sql = "INSERT INTO tarefas (titulo, descricao, data_criacao, data_conclusao, status) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO tarefas (titulo, descricao, data_criacao, data_conclusao, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, tarefa.getTitulo() );
             statement.setString(2, tarefa.getDescricao());
             statement.setString(3, tarefa.getDataCriacao());
             statement.setString(4, tarefa.getDataConclusao());
             statement.setString(5, tarefa.getStatus());
+            statement.setInt(6, id);
             int linhasInseridas = statement.executeUpdate();
             if (linhasInseridas > 0) {
                 System.out.println("Tarefa adicionada com sucesso");
@@ -118,7 +133,7 @@ public class DAO {
 	}
     
     
-    public ArrayList<tarefas> listar_tarefas() {
+    public ArrayList<tarefas> listar_tarefas(int id_logado) {
         ArrayList<tarefas> tarefas = new ArrayList<>();
         String sql = "SELECT * FROM tarefas";
         
@@ -134,9 +149,9 @@ public class DAO {
                 String dataCriacao = resultSet.getString(4);
                 String dataConclusao = resultSet.getString(5);
                 String status = resultSet.getString(6);
-                
-                tarefas.add( new tarefas("" + id, titulo, descricao, dataCriacao, dataConclusao, status));
-
+            	if(id_logado == resultSet.getInt(7)) {
+                    tarefas.add( new tarefas("" + id, titulo, descricao, dataCriacao, dataConclusao, status));
+            	}
             }
             
             con.close();
@@ -152,7 +167,7 @@ public class DAO {
     
     public void excluir_tarefa(String id) {
 
-        // Deletar os dados no banco de dados
+        // Deletar os dados no bd
         try {
             
         	Connection con = conectar();
@@ -162,7 +177,7 @@ public class DAO {
            
             int linhasExcluidas = statement.executeUpdate();
             if (linhasExcluidas > 0) {
-                System.out.println("Tarefa excluída com sucesso");
+                System.out.println("Tarefa excluï¿½da com sucesso");
             }
             statement.close();
             con.close();
@@ -217,7 +232,7 @@ public class DAO {
             statement.setString(3, tarefa.getDataCriacao());
             statement.setString(4, tarefa.getDataConclusao());
             statement.setString(5, tarefa.getStatus());
-            statement.setString(6, id+""); // Definir o valor do ID
+            statement.setString(6, id);
 
             int linhasAtualizadas = statement.executeUpdate();
             if (linhasAtualizadas > 0) {
@@ -233,8 +248,8 @@ public class DAO {
     
     
     
-    public int login(String usuario, String senha) {
-        String sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+    public int login(HttpServletRequest request, String usuario, String senha) {
+        String sql = "SELECT * FROM usuarios WHERE email = ?";
         int resultado = 0;
         
         try {
@@ -242,15 +257,24 @@ public class DAO {
             PreparedStatement statement = con.prepareStatement(sql);
             
             statement.setString(1, usuario);
-            statement.setString(2, senha);
             
             ResultSet resultSet = statement.executeQuery();
-            
+  
             if (resultSet.next()) {
-                System.out.println("Login realizado com sucesso");
-                resultado = 1;
+            	
+            	String senha_criptografada = resultSet.getString(5);
+                
+                if(verificarSenha(senha, senha_criptografada)) {
+                	System.out.println("Login realizado com sucesso");
+                    resultado = 1;
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("usuario_logado", resultSet.getInt(1));
+                    session.getAttribute("usuario_logado");
+                    System.out.println(session.getAttribute("usuario_logado"));
+                }
+      
             } else {
-                System.out.println("Usuário ou senha inválidos");
+                System.out.println("Usuï¿½rio ou senha invï¿½lidos");
                 resultado = 0;
             }
             
@@ -260,6 +284,15 @@ public class DAO {
             System.out.println(e);
         }
 		return resultado;
+    }
+    
+    public static String criptografarSenha(String senha) {
+        String senhaCriptografada = BCrypt.gensalt();
+        return BCrypt.hashpw(senha, senhaCriptografada);
+    }
+    
+    public static boolean verificarSenha(String senhaDigitada, String senhaCriptografada) {
+        return BCrypt.checkpw(senhaDigitada, senhaCriptografada);
     }
  
     

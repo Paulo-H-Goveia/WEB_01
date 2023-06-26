@@ -40,7 +40,7 @@ public class update_tarefa extends HttpServlet {
 		tarefa.setDataConclusao(request.getParameter("dataConclusao"));
 		tarefa.setStatus(request.getParameter("status"));
         
-        dao.update_tarefa(tarefa, id+"");
+        dao.update_tarefa(tarefa, id);
         response.sendRedirect("http://localhost:8080/agenda_pessoal/listar_tarefas");
 	}
 

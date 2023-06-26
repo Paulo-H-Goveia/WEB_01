@@ -1,31 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>P·gina de Cadastro</title>
+  <title>Cadastro</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      display: flex;
+      font-family: 'Open Sans';
       justify-content: center;
       align-items: center;
       height: 97vh;
-    }
-
-    .container {
-      width: 300px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f2f2f2;
+      display:flex;
+      background: linear-gradient(to bottom, #848484, #585a5b);
     }
     
     a{
       text-decoration: none;
-      color: blue;
+      color: rgb(230, 105, 252);
     }
 
+    .container {
+      width: 40%;
+      height: 40%;
+      padding: 20px;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      background: linear-gradient(to bottom, #848484, #585a5b);
+    }
+    
     h2 {
       text-align: center;
+      color: #ccc;
     }
 
     .form-group {
@@ -36,6 +40,7 @@
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
+      color: #ccc;
     }
 
     .form-group input {
@@ -46,28 +51,33 @@
     }
 
     .form-group .btn {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 3px;
-      background-color: #4CAF50;
-      color: #fff;
-      cursor: pointer;
-    }
-    
-    .btn_voltar {
-      width: 94%;
+      width: 35%;
       padding: 10px;
       border: none;
       border-radius: 3px;
       background-color: blue;
       color: #fff;
       cursor: pointer;
+      text-align: center;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .btn_voltar {
+      width: 35%;
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      background-color: #4ca2af;
+      color: #fff;
+      cursor: pointer;
       height: 15px;
     }
     
     label{
-      font-family: Arial, sans-serif;
+      font-family: 'Open Sans';
     }
     
         .register-link {
@@ -81,7 +91,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
-      max-width: 300px; /* Defina a largura m·xima desejada */
+      max-width: 300px;
       background-color: #ffffff;
       border: 1px solid #cccccc;
       padding: 10px 20px 10px 20px;
@@ -93,7 +103,7 @@
     .custom-div {
       width: 300px;
       margin: 0 auto;
-      background-color: #f1f1f1; /* cor de fundo desejada */
+      background-color: #f1f1f1;
     }
     
   </style>
@@ -140,9 +150,9 @@
       <div class="form-group">
         <input type="submit" value="Cadastrar" class="btn">
       </div>
-      <div style="text-align: center;"><span>J· tem uma conta ? </span><a href="http://localhost:8080/agenda_pessoal/login.jsp">FaÁa login aqui</a></div>
+      <div style="text-align: center;"><span style="color: #ccc;">J√° √© cadastrado? </span><a href="http://localhost:8080/agenda_pessoal/index.jsp">Fa√ßa login aqui</a></div>
     </form>
   </div>
-  <div class="error-popup" id="error-popup">O endereÁo de email j· est· em uso</div>
+  <div class="error-popup" id="error-popup">O endere√ßo de email j√° est√° em uso</div>
 </body>
 </html>

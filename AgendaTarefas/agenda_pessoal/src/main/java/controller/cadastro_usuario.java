@@ -52,7 +52,7 @@ public class cadastro_usuario extends HttpServlet {
         usuario.setEmail(request.getParameter("email"));
         usuario.setSenha(request.getParameter("senha"));
         
-        if (dao.inserir_usuario(usuario) == 0) {
+        if (dao.inserir_usuario(request, usuario) == 0) {
         	response.sendRedirect("http://localhost:8080/agenda_pessoal/listar_tarefas");
         }else {
         	response.sendRedirect("http://localhost:8080/agenda_pessoal/cadastro.jsp?status=rejected");
